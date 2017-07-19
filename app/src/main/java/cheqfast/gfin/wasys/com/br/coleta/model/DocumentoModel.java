@@ -39,6 +39,7 @@ public class DocumentoModel extends Model {
         PENDENTE (R.string.documento_status_pendente, R.drawable.documento_status_pendente),
         APROVADO (R.string.documento_status_aprovado, R.drawable.documento_status_aprovado),
         PROCESSANDO (R.string.documento_status_processando, R.drawable.documento_status_processando),
+        REJEITADO (R.string.documento_status_rejeitado, R.drawable.documento_status_rejeitado),
         DIGITALIZADO (R.string.documento_status_digitalizado, R.drawable.documento_status_digitalizado);
         public int stringRes;
         public int drawableRes;

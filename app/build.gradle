@@ -23,12 +23,12 @@ android {
             debuggable true
             buildConfigField 'String', 'APP', "\"Coleta\""
             buildConfigField 'String', 'APP_DIRECTORY_NAME', "\"Gfin.Cheqfast.Coleta\""
-            /*buildConfigField 'String', 'BASE_URL', "\"http://wasys-ocr2.wasys.com.br:84/cheqfast/rest/\""
+            buildConfigField 'String', 'BASE_URL', "\"http://wasys-ocr2.wasys.com.br:84/cheqfast/rest/\""
             buildConfigField 'String', 'TERMO_URL', "\"http://wasys-ocr2.wasys.com.br:84/cheqfast/termo.html\""
-            buildConfigField 'String', 'SERVER_URL', "\"http://wasys-ocr2.wasys.com.br:84/cheqfast/\""*/
-            buildConfigField 'String', 'BASE_URL', "\"http://192.168.100.4:8080/cheqfast/rest/\""
-            buildConfigField 'String', 'TERMO_URL', "\"http://192.168.100.4:8080/cheqfast/termo.html\""
-            buildConfigField 'String', 'SERVER_URL', "\"http://192.168.100.4:8080/cheqfast/\""
+            buildConfigField 'String', 'SERVER_URL', "\"http://wasys-ocr2.wasys.com.br:84/cheqfast/\""
+            /*buildConfigField 'String', 'BASE_URL', "\"http://192.168.100.20:8080/cheqfast/rest/\""
+            buildConfigField 'String', 'TERMO_URL', "\"http://192.168.100.20:8080/cheqfast/termo.html\""
+            buildConfigField 'String', 'SERVER_URL', "\"http://192.168.100.20:8080/cheqfast/\""*/
         }
     }
     packagingOptions {

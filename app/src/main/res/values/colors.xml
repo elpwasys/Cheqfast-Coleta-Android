@@ -26,6 +26,10 @@
     <color name="orange_500">#FF9800</color>
     <color name="orange_800">#EF6C00</color>
 
+    <!-- Deep Orange -->
+    <color name="deep_orange_500">#FF5722</color>
+    <color name="deep_orange_800">#D84315</color>
+
     <!-- Yellow -->
     <color name="yellow_500">#FFEB3B</color>
     <color name="yellow_800">#F9A825</color>

@@ -124,5 +124,14 @@
     <string name="justificativa">Justificativa</string>
     <string name="msg_justificativa_sucesso">Justificativa enviada com sucesso</string>
     <string name="msg_sem_registro_exibir">Sem registros para exibir</string>
+    <string name="documento_status_rejeitado">Rejeitado</string>
+    <string name="processo_status_em_liberacao">Em Liberação</string>
+    <string name="assinar_aditivo">Assinar aditivo</string>
+    <string name="assinar_promissoria">Assinar promissoria</string>
+    <string name="registrar_coleta">Registrar coleta</string>
+    <string name="coleta">Coleta</string>
+    <string name="msg_registrar_coleta">Deseja registrar a coleta dos cheques?</string>
+    <string name="direcao">Direção</string>
+    <string name="mapa">Mapa</string>
 
 </resources>

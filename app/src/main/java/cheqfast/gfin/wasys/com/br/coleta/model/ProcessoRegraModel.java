@@ -17,6 +17,7 @@ public class ProcessoRegraModel implements Serializable {
     public boolean podeAprovar;
     public boolean podeCancelar;
     public boolean podeDigitalizar;
+    public boolean podeRegistrarColeta;
     public boolean podeResponderPendencia;
 
     public Map<Pendencia, String> pendencias;

@@ -1,0 +1,127 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".fragment.DocumentoDetalheFragment">
+
+    <include layout="@layout/list_item_documento" />
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-11dp"
+        android:indeterminate="true"
+        android:visibility="gone"
+        style="?android:attr/progressBarStyleHorizontal"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <FrameLayout
+                    android:id="@+id/view_cheque_atual"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:background="@drawable/bg_caption"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true">
+
+                    <ImageView
+                        android:id="@+id/image_cheque_atual"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/quarter"
+                        android:adjustViewBounds="true" />
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/view_cheque_outro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:background="@drawable/bg_caption"
+                    android:layout_below="@+id/view_cheque_atual"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    >
+
+                    <ImageView
+                        android:id="@+id/image_cheque_outro"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/quarter"
+                        android:adjustViewBounds="true" />
+
+                </FrameLayout>
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/fab_substituir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_below="@id/view_cheque_atual"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="-22dp"
+                    android:src="@drawable/ic_fab_replace"
+                    app:fabSize="mini"
+                    app:backgroundTint="@color/white"/>
+
+            </RelativeLayout>
+
+        </ScrollView>
+
+        <com.github.clans.fab.FloatingActionMenu
+            android:id="@+id/fab_menu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            android:visibility="gone"
+            app:menu_labels_ellipsize="end"
+            app:menu_labels_singleLine="true"
+            app:menu_backgroundColor="#ccffffff">
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/fab_justificar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_fab_reply"
+                android:tint="@android:color/white"
+                app:fab_colorNormal="@color/blue_500"
+                app:fab_colorPressed="@color/blue_800"
+                app:fab_colorDisabled="@color/grey_300"
+                app:fab_size="mini"
+                app:fab_label="@string/justificar" />
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/fab_scanner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_fab_camera"
+                android:tint="@android:color/white"
+                app:fab_colorNormal="@color/green_500"
+                app:fab_colorPressed="@color/green_800"
+                app:fab_colorDisabled="@color/grey_300"
+                app:fab_size="mini"
+                app:fab_label="@string/substituir" />
+
+        </com.github.clans.fab.FloatingActionMenu>
+
+    </FrameLayout>
+
+</LinearLayout>

@@ -77,28 +77,30 @@
                 android:id="@+id/layout_status"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/default_margin">
+                android:layout_marginTop="@dimen/default_margin"
+                android:visibility="gone">
 
                 <br.com.wasys.library.widget.AppSpinner
                     android:id="@+id/spinner_status"
+                    style="@style/AppTheme.EditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/status_processo"
-                    style="@style/AppTheme.EditText" />
+                    android:hint="@string/status_processo" />
 
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/default_margin">
+                android:layout_marginTop="@dimen/default_margin"
+                android:visibility="gone">
 
                 <br.com.wasys.library.widget.AppSpinner
                     android:id="@+id/spinner_coleta"
+                    style="@style/AppTheme.EditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/coleta_processo"
-                    style="@style/AppTheme.EditText" />
+                    android:hint="@string/coleta_processo" />
 
             </android.support.design.widget.TextInputLayout>
 

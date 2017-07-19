@@ -29,15 +29,11 @@ import cheqfast.gfin.wasys.com.br.coleta.widget.AppNumberEditText;
 
 public class FiltroDialog extends AppCompatDialogFragment {
 
-    @BindView(R.id.edit_numero)
-    AppNumberEditText mNumeroEditText;
-    @BindView(R.id.edit_inicio)
-    AppDateEditText mInicioDateEditText;
+    @BindView(R.id.edit_numero) AppNumberEditText mNumeroEditText;
+    @BindView(R.id.edit_inicio) AppDateEditText mInicioDateEditText;
     @BindView(R.id.edit_termino) AppDateEditText mTerminoDateEditText;
-    @BindView(R.id.spinner_status)
-    AppSpinner mStatusSpinner;
-    @BindView(R.id.spinner_coleta)
-    AppSpinner mColetaSpinner;
+    @BindView(R.id.spinner_status) AppSpinner mStatusSpinner;
+    @BindView(R.id.spinner_coleta) AppSpinner mColetaSpinner;
     @BindView(R.id.layout_status) TextInputLayout mStatusLayout;
 
     private FiltroModel mFiltro;
@@ -73,7 +69,7 @@ public class FiltroDialog extends AppCompatDialogFragment {
                 mColetaSpinner.setValue(mFiltro.coleta.name());
             }
         }
-        mStatusLayout.setVisibility(mStatusVisibility);
+        //mStatusLayout.setVisibility(mStatusVisibility);
         return builder.create();
     }
 
