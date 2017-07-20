@@ -101,9 +101,6 @@
     <string name="data_hora">Data / hora</string>
     <string name="taxa">Taxa</string>
     <string name="valor_liberado">Valor liberado</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="cheque">Cheque</string>
     <string name="detalhe">Detalhe</string>
     <string name="abrir">Abrir</string>
@@ -133,5 +130,7 @@
     <string name="msg_registrar_coleta">Deseja registrar a coleta dos cheques?</string>
     <string name="direcao">Direção</string>
     <string name="mapa">Mapa</string>
+    <string name="aditivo">Aditivo</string>
+    <string name="promissoria">Promissória</string>
 
 </resources>

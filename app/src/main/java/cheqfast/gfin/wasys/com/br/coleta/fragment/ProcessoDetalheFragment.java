@@ -48,7 +48,7 @@ import rx.Subscriber;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ProcessoDetalheFragment extends CheqFastFragment implements View.OnClickListener {
+public class ProcessoDetalheFragment extends CheqFastFragment implements View.OnClickListener, DocumentoAssinaturaFragment.DocumentoAssinaturaListener {
 
     @BindView(R.id.view_root) View mViewRoot;
     @BindView(R.id.text_id) TextView mIdTextView;
@@ -72,6 +72,8 @@ public class ProcessoDetalheFragment extends CheqFastFragment implements View.On
     private ProcessoRegraModel mRegra;
 
     private static final String KEY_ID = ProcessoPesquisaFragment.class.getSimpleName() + ".mId";
+    private static final String KEY_ADITIVO_OK = ProcessoPesquisaFragment.class.getSimpleName() + ".mAditivoOk";
+    private static final String KEY_PROMISSOIA_OK = ProcessoPesquisaFragment.class.getSimpleName() + ".mPromissoriaOk";
 
     public static ProcessoDetalheFragment newInstance(Long id) {
         ProcessoDetalheFragment fragment = new ProcessoDetalheFragment();
@@ -142,8 +144,44 @@ public class ProcessoDetalheFragment extends CheqFastFragment implements View.On
         }
     }
 
+    @Override
+    public void onConfirmarClick(DocumentoModel.Nome nome) {
+        String key = null;
+        if (DocumentoModel.Nome.ADITIVO.equals(nome)) {
+            key = KEY_ADITIVO_OK;
+        } else if (DocumentoModel.Nome.PROMISSORIA.equals(nome)) {
+            key = KEY_PROMISSOIA_OK;
+        }
+        if (StringUtils.isNotEmpty(key)) {
+            Bundle bundle = getArguments();
+            if (bundle == null) {
+                bundle = new Bundle();
+                setArguments(bundle);
+            }
+            bundle.putBoolean(key, true);
+            setRegistrarVisibility();
+        }
+    }
+
+    @OnClick(R.id.fab_assinar_aditivo)
+    public void onAssinarAditivoClick() {
+        mFloatingActionMenu.close(true);
+        DocumentoAssinaturaFragment fragment = DocumentoAssinaturaFragment.newInstance(mId, DocumentoModel.Nome.ADITIVO);
+        fragment.setListener(this);
+        FragmentUtils.replace(getActivity(), R.id.content_main, fragment, fragment.getBackStackName());
+    }
+
+    @OnClick(R.id.fab_assinar_promissoria)
+    public void onAssinarPromissoriaClick() {
+        mFloatingActionMenu.close(true);
+        DocumentoAssinaturaFragment fragment = DocumentoAssinaturaFragment.newInstance(mId, DocumentoModel.Nome.PROMISSORIA);
+        fragment.setListener(this);
+        FragmentUtils.replace(getActivity(), R.id.content_main, fragment, fragment.getBackStackName());
+    }
+
     @OnClick(R.id.fab_registrar_coleta)
     public void onRegistrarColetaClick() {
+        mFloatingActionMenu.close(true);
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity())
                 .setTitle(R.string.coleta)
                 .setMessage(R.string.msg_registrar_coleta)
@@ -266,9 +304,9 @@ public class ProcessoDetalheFragment extends CheqFastFragment implements View.On
 
             if (mRegra.podeRegistrarColeta) {
                 mFloatingActionMenu.setVisibility(View.VISIBLE);
-                mRegistrarColetaFloatingActionButton.setEnabled(true);
                 mAssinarAditivoFloatingActionButton.setEnabled(true);
                 mAssinarPromissoriaFloatingActionButton.setEnabled(true);
+                setRegistrarVisibility();
             }
 
             String endereco = getEnderecoCompleto();
@@ -277,6 +315,18 @@ public class ProcessoDetalheFragment extends CheqFastFragment implements View.On
             }
 
             setRootViewVisibility(View.VISIBLE);
+        }
+    }
+
+    private void setRegistrarVisibility() {
+        mRegistrarColetaFloatingActionButton.setEnabled(false);
+        if (mRegra != null && mRegra.podeRegistrarColeta) {
+            Bundle bundle = getArguments();
+            boolean isAditivoOk = bundle.getBoolean(KEY_ADITIVO_OK, false);
+            boolean isPromissoriaOk = bundle.getBoolean(KEY_PROMISSOIA_OK, false);
+            if (isAditivoOk && isPromissoriaOk) {
+                mRegistrarColetaFloatingActionButton.setEnabled(true);
+            }
         }
     }
 

@@ -12,4 +12,8 @@ public interface DocumentoEndpoint {
 
     @GET("documento/obter/{id}")
     Call<DocumentoModel> obter(@Path("id") Long id);
+
+
+    @GET("documento/obter/{segmento}/{id}")
+    Call<DocumentoModel> obter(@Path("segmento") String segmento, @Path("id") Long id);
 }

@@ -20,6 +20,15 @@ public class DocumentoService extends Service {
         return model;
     }
 
+
+    public static DocumentoModel obter(Long id, DocumentoModel.Nome nome) throws Throwable {
+        DocumentoEndpoint endpoint = Endpoint.create(DocumentoEndpoint.class);
+        String segmento = nome.name().toLowerCase();
+        Call<DocumentoModel> call = endpoint.obter(segmento, id);
+        DocumentoModel model = Endpoint.execute(call);
+        return model;
+    }
+
     public static class Async {
 
         public static Observable<DocumentoModel> obter(final Long id) {
@@ -28,6 +37,21 @@ public class DocumentoService extends Service {
                 public void call(Subscriber<? super DocumentoModel> subscriber) {
                     try {
                         DocumentoModel model = DocumentoService.obter(id);
+                        subscriber.onNext(model);
+                        subscriber.onCompleted();
+                    } catch (Throwable e) {
+                        subscriber.onError(e);
+                    }
+                }
+            });
+        }
+
+        public static Observable<DocumentoModel> obter(final Long id, final DocumentoModel.Nome nome) {
+            return Observable.create(new Observable.OnSubscribe<DocumentoModel>() {
+                @Override
+                public void call(Subscriber<? super DocumentoModel> subscriber) {
+                    try {
+                        DocumentoModel model = DocumentoService.obter(id, nome);
                         subscriber.onNext(model);
                         subscriber.onCompleted();
                     } catch (Throwable e) {

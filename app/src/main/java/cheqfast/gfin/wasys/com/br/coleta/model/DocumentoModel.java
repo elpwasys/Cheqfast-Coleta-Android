@@ -34,6 +34,15 @@ public class DocumentoModel extends Model {
     public ChequeModel cheque;
     public List<ImagemModel> imagens;
 
+    public enum Nome {
+        ADITIVO (R.string.aditivo),
+        PROMISSORIA (R.string.promissoria);
+        public int stringRes;
+        Nome(@StringRes int stringRes) {
+            this.stringRes = stringRes;
+        }
+    }
+
     public enum Status {
         INCLUIDO (R.string.documento_status_incluido, R.drawable.documento_status_incluido),
         PENDENTE (R.string.documento_status_pendente, R.drawable.documento_status_pendente),
